@@ -25,14 +25,14 @@
         var map = L.map('map', {
           maxZoom: mapMaxZoom,
           minZoom: mapMinZoom,
-          crs: L.CRS.Simple
-        }).setView([0, 0], mapMaxZoom);
+          crs: L.CRS.Simple,
+        }).setView([-50, 50], 4);
 
         var mapBounds = new L.LatLngBounds(
             map.unproject([0, 10240], mapMaxZoom),
             map.unproject([10240, 0], mapMaxZoom));
 
-        map.fitBounds(mapBounds);
+        // map.fitBounds(mapBounds);
         layer = L.tileLayer('{z}/{x}/{y}.png', {
           minZoom: mapMinZoom, maxZoom: mapMaxZoom,
           bounds: mapBounds,
@@ -43,7 +43,7 @@
       }
     </script>
     <style>
-      html, body, #map { width:100%; height:100%; margin:0; padding:0; z-index: 1; }
+      html, body, #map { width:100%; height:100%; margin:0; padding:0; z-index: 1; background: black;}
       #slider{ position: absolute; top: 10px; right: 10px; z-index: 5; }
     </style>
   </head>
